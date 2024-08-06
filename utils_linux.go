@@ -372,6 +372,7 @@ func startContainer(context *cli.Context, action CtAct, criuOpts *libcontainer.C
 	if notifySocket != nil {
 		notifySocket.setupSpec(spec)
 	}
+	logrus.Debugf("NOTIFY_SOCKET: %s, notifySocket: %v", os.Getenv("NOTIFY_SOCKET"), notifySocket)
 
 	container, err := createContainer(context, id, spec)
 	if err != nil {
