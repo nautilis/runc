@@ -76,6 +76,7 @@ func setupSpec(context *cli.Context) (*specs.Spec, error) {
 		}
 	}
 	spec, err := loadSpec(specConfig)
+	logrus.Debug("loaded spec", spec)
 	if err != nil {
 		return nil, err
 	}

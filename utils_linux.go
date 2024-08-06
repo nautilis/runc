@@ -316,6 +316,7 @@ func (r *runner) terminate(p *libcontainer.Process) {
 
 func (r *runner) checkTerminal(config *specs.Process) error {
 	detach := r.detach || (r.action == CT_ACT_CREATE)
+	logrus.Debug("Checking terminal ===> ", detach, config.Terminal, r.consoleSocket)
 	// Check command-line for sanity.
 	if detach && config.Terminal && r.consoleSocket == "" {
 		return errors.New("cannot allocate tty if runc will detach without setting console socket")
